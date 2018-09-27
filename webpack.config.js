@@ -39,11 +39,11 @@ var webpackConfig = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js', 
-        /* 较大的图片会生成到build/img下
-         * 这样一来build/img和img会存在重复的图片
+        /* 较大的图片会生成到build/images下
+         * 这样一来build/images和images会存在重复的图片
          * 为了减少体积
-         * 通过publicPath将模块中的图片路径映射到根目录下的img文件夹
-         * 直接删除build/img即可
+         * 通过publicPath将模块中的图片路径映射到根目录下的images文件夹
+         * 直接删除build/images即可
          */
         publicPath: '../../'
     },
@@ -74,7 +74,7 @@ var webpackConfig = {
             loader: 'url-loader',
             options: {
                 limit: 8192,
-                name: 'img/[name].[ext]'
+                name: 'images/[name].[ext]'
             }
         }]
     },
