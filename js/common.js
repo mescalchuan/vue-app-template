@@ -1,5 +1,5 @@
 import "@/css/common.scss";
 
 export default {
-	message: "hello vue"
+	message: "Hello Vue-App"
 }
