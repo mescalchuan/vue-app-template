@@ -1,6 +1,7 @@
 var path = require('path');
 var fs = require('fs');
 var webpack = require('webpack');
+var config = require('./config');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
@@ -18,7 +19,7 @@ var externals = {
 }
 
 var entry = {
-	"vendor": ["./js/common.js"]
+	"vendor": config.commonModule
 }
 
 var entryPath = path.resolve(__dirname, 'entry');
@@ -47,7 +48,6 @@ var webpackConfig = {
         publicPath: '../../'
     },
     externals: externals,
-    devtool: 'source-map',
     module: {
         rules: [{
             test: /\.js$/,
@@ -138,5 +138,7 @@ var webpackConfig = {
         new OptimizeCSSPlugin()
     ]
 };
+
+config.isDevelopment && (webpackConfig.devtool = 'source-map');
 
 module.exports = webpackConfig;
