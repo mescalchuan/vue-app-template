@@ -1,4 +1,5 @@
 var path = require('path');
+var fs = require('fs');
 var webpack = require('webpack');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -16,12 +17,24 @@ var externals = {
     'vue': 'Vue'
 }
 
-//最基本的webpack配置
+var entry = {
+	"vendor": ["./js/common.js"]
+}
+
+var entryPath = path.resolve(__dirname, 'entry');
+
+var files = fs.readdirSync(entryPath);
+files.forEach(function(filename) {
+    var stats = fs.statSync(path.join(entryPath, filename));
+    if (stats.isFile() && path.extname(filename) == '.js') {
+        var entryJSKey = filename.split('.js')[0];
+        entry[entryJSKey] = path.join(entryPath, filename);
+    }
+})
+
+//webpack配置
 var webpackConfig = {
-    entry: {
-    	"home": "./entry/home.js",
-    	"vendor": ["./js/common.js"]
-    },
+    entry: entry,
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js', 
