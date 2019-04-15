@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
+    "fastclick": "^1.0.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
@@ -27,15 +29,16 @@
     "webpack": "^3.8.1"
   },
   "devDependencies": {
-  	"cheerio": "^1.0.0-rc.2",
-    "cross-env": "^5.1.1",
     "autoprefixer": "^7.1.2",
+    "cheerio": "^1.0.0-rc.2",
+    "cross-env": "^5.1.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "happypack": "^4.0.1",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
+    "px2rem-loader": "^0.1.9",
     "uglifyjs-webpack-plugin": "^1.2.0",
     "vue-template-compiler": "^2.5.2"
   }

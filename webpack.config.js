@@ -33,6 +33,8 @@ files.forEach(function(filename) {
     }
 })
 
+var remLoader = `px2rem-loader?remUnit=${config.remUnit}`
+
 //webpack配置
 var webpackConfig = {
     entry: entry,
@@ -61,12 +63,12 @@ var webpackConfig = {
     		test: /\.css$/,
 	        use: ExtractTextPlugin.extract({
 	            fallback: 'style-loader',
-	            use: ['css-loader']
+	            use: ['css-loader', remLoader]
 	        })
 		}, {
 			test: /\.scss$/,
 	        use: ExtractTextPlugin.extract({
-	            use: ['css-loader', 'sass-loader'],
+	            use: ['css-loader', remLoader, 'sass-loader'],
 	            fallback: 'style-loader'
 	        })
 		}, {
@@ -107,15 +109,15 @@ var webpackConfig = {
         		options: {
         			loaders: {
 			      		scss: ExtractTextPlugin.extract({
-			              	use: 'css-loader!sass-loader',
+			              	use: `css-loader!${remLoader}!sass-loader`,
 			              	fallback: 'vue-style-loader'
 			            }),
 			      		sass: ExtractTextPlugin.extract({
-			              	use: 'css-loader!sass-loader?indentedSyntax',
+			              	use: `css-loader!${remLoader}!sass-loader?indentedSyntax`,
 			              	fallback: 'vue-style-loader'
 			            }),
 			    		css: ExtractTextPlugin.extract({
-			              	use: 'css-loader',
+			              	use: `css-loader!${remLoader}`,
 			              	fallback: 'vue-style-loader'
 			            })
         			}
