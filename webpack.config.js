@@ -15,7 +15,8 @@ var DefinePlugin = webpack.DefinePlugin;
 
 var externals = {
     //import Vue(value) from 'vue'(key)
-    'vue': 'Vue'
+    'vue': 'Vue',
+    'vue-router': 'VueRouter'
 }
 
 var entry = {
