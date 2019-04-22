@@ -6,6 +6,7 @@ var config = require('./config');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var vConsolePlugin = require('vconsole-webpack-plugin'); 
 
 //提高loader的解析速度
 var HappyPack = require('happypack');
@@ -138,7 +139,11 @@ var webpackConfig = {
         new ExtractTextPlugin('css/[name].css', {
             allChunks: false
         }),
-        new OptimizeCSSPlugin()
+        new OptimizeCSSPlugin(),
+        new vConsolePlugin({
+            filter: [],  // 需要过滤的入口文件
+            enable: config.vconsole // 发布代码前记得改回 false
+        }),
     ]
 };
 
