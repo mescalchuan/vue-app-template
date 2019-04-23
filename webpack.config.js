@@ -37,6 +37,10 @@ files.forEach(function(filename) {
 
 var remLoader = `px2rem-loader?remUnit=${config.remUnit}`
 
+// 删除build目录
+var del = require('del');
+del(['./build/*']);
+
 //webpack配置
 var webpackConfig = {
     entry: entry,
