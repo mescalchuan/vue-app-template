@@ -144,9 +144,14 @@ var webpackConfig = {
             filter: [],  // 需要过滤的入口文件
             enable: config.vconsole // 发布代码前记得改回 false
         }),
+	new webpack.SourceMapDevToolPlugin()
     ]
 };
 
-config.isDevelopment && (webpackConfig.devtool = 'source-map');
+/**
+ * ### old devtool solution
+ * 
+ * config.isDevelopment && (webpackConfig.devtool = 'source-map');
+ */
 
 module.exports = webpackConfig;
