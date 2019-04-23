@@ -154,4 +154,6 @@ var webpackConfig = {
  * config.isDevelopment && (webpackConfig.devtool = 'source-map');
  */
 
+config.isDevelopment && (webpackConfig.plugins = webpackConfig.plugins.concat([new webpack.SourceMapDevToolPlugin()]))
+
 module.exports = webpackConfig;
