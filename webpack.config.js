@@ -84,7 +84,10 @@ var webpackConfig = {
                 limit: 8192,
                 name: 'images/[name].[ext]'
             }
-        }]
+        }, {
+		test: /\.(ttf|eot|woff|woff2|svg)/,
+		loader: 'file-loader'
+	}]
     },
     resolve: {
         extensions: ['.js', '.json', '.vue'],
